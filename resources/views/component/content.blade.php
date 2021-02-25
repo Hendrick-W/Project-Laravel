@@ -1,0 +1,1 @@
+<p>COntent {{$comment}}</p>

@@ -15,7 +15,7 @@ class TestController extends Controller
         // $var2 = 2;
         // $result = $var1 + $var2;
         // return "ini adalah controller dari test dan ini adalah operasi sederhana matematika: ".$result;
-        return view('app', ['nama' => $comment]);
+        return view('child', ['nama' => $comment]);
     }
     public function testAja(){
         return view('welcomer');

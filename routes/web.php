@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::get('/test', 'TestController@index');
 // Route::get('/testaja', 'TestController@testAja');
 
-
 //Router User
 Route::get('/user', 'UserController@index');
 Route::post('/user', 'UserController@simpan');

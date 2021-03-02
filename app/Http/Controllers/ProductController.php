@@ -8,12 +8,25 @@ class ProductController extends Controller
 {
     //
     public function index(Request $request){
-      // $idProduk = $request->input('id');
-      // $namaProduk = $request->input('nama_produk');
       // $hargaProduk = $request->input('harga_produk');
-      
       // dd($request->all());
-      return 'ini method get';
+      // return 'ini method get';
+      // return response('Berhasil', 201);
+      $dataUser = [
+        [
+          'nama'=>'Hendrick',
+          'state' => 'Indonesia'
+        ],
+        [
+          'nama'=>'Hendrick',
+          'state' => 'Indonesia'
+        ],
+        [
+          'nama'=>'Hendrick',
+          'state' => 'Indonesia'
+        ]
+      ];
+      return response()->json($dataUser);
     }
     public function simpan(Request $request){
       // $idProduk = $request->input('id');
@@ -26,9 +39,9 @@ class ProductController extends Controller
       }
       return 'ini method post';
     }
-    public function hapus(Request $request){
+    public function hapus($id, $tester){
       // $produk->delete();
-      return 'ini method del';
+      return $id.'ini method del'.$tester;
     }
     public function update(Request $request){
       $produk->update();

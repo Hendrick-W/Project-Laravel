@@ -34,6 +34,9 @@ class ProductController extends Controller
       // $hargaProduk = $request->input('harga_produk');
       
       // $produk->save()
+      $validatedData = $request->validate([
+        'name' => ['required']
+      ]);
       if($request->input('name')){
         return response('ini sudah disimpan', 200);
       }

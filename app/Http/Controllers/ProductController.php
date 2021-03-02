@@ -21,6 +21,9 @@ class ProductController extends Controller
       // $hargaProduk = $request->input('harga_produk');
       
       // $produk->save()
+      if($request->input('name')){
+        return response('ini sudah disimpan', 200);
+      }
       return 'ini method post';
     }
     public function hapus(Request $request){

@@ -20,11 +20,6 @@ Route::get('/', function () {
 Route::get('/test', 'TestController@index');
 // Route::get('/testaja', 'TestController@testAja');
 
-//Router Produk
-Route::get('/produk', 'ProductController@index');
-Route::post('/produk', 'ProductController@simpan');
-Route::put('/produk', 'ProductController@update');
-Route::delete('/produk', 'ProductController@hapus');
 
 //Router User
 Route::get('/user', 'UserController@index');

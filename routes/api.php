@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//Router Produk
+Route::get('/produk', 'ProductController@index');
+Route::post('/produk', 'ProductController@simpan');
+Route::put('/produk', 'ProductController@update');
+Route::delete('/produk', 'ProductController@hapus');

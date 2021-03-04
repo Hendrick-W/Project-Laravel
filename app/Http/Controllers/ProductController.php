@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -12,42 +13,54 @@ class ProductController extends Controller
       // dd($request->all());
       // return 'ini method get';
       // return response('Berhasil', 201);
-      $dataUser = [
+      $photos = DB::table('photos')->get();
+      return response()->json(
         [
-          'nama'=>'Hendrick',
-          'state' => 'Indonesia'
+          'status'=>'success',
+          'data'=> $photos
         ],
-        [
-          'nama'=>'Hendrick',
-          'state' => 'Indonesia'
-        ],
-        [
-          'nama'=>'Hendrick',
-          'state' => 'Indonesia'
-        ]
-      ];
-      return response()->json($dataUser);
+        200
+      );
     }
     public function simpan(Request $request){
-      // $idProduk = $request->input('id');
-      // $namaProduk = $request->input('nama_produk');
-      // $hargaProduk = $request->input('harga_produk');
-      
-      // $produk->save()
-      $validatedData = $request->validate([
-        'name' => ['required']
+      $inserted = DB::table('photos')->insert([
+        'name' => $request->input('name'),
+        'title' => $request->input('title')
       ]);
-      if($request->input('name')){
-        return response('ini sudah disimpan', 200);
+      if($inserted){
+        $message = 'insert success';
       }
-      return 'ini method post';
+      return response()->json(
+        [
+          'status'=>'success',
+          'messages'=> $message
+        ],
+        200
+      );
     }
-    public function hapus($id, $tester){
+    public function hapus($id){
       // $produk->delete();
-      return $id.'ini method del'.$tester;
+      DB::table('photos')->where('id', '>', $id)->delete();
     }
-    public function update(Request $request){
-      $produk->update();
+    public function update(Request $request, $id){
+      $affected = DB::table('photos')
+        ->where('id', $id)
+        ->update(
+          [
+            'name' => $request->input('name'),
+            'title' => $request->input('title')
+          ]
+        );
+      if($affected){
+        $message="update success";
+      }
+      return response()->json(
+        [
+          'status'=>'success',
+          'messages'=> $message
+        ],
+        200
+      );
     }
 }
 

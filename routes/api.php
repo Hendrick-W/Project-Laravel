@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Router Produk
 Route::get('/produk', 'ProductController@index');
 Route::post('/produk', 'ProductController@simpan');
-Route::put('/produk', 'ProductController@update');
-Route::delete('/produk/{id}/{tester}', 'ProductController@hapus');
+Route::put('/produk/{id}', 'ProductController@update');
+Route::delete('/produk/{id}', 'ProductController@hapus');

@@ -4,16 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Photo;
 
 class ProductController extends Controller
 {
     //
     public function index(Request $request){
-      // $hargaProduk = $request->input('harga_produk');
-      // dd($request->all());
-      // return 'ini method get';
-      // return response('Berhasil', 201);
-      $photos = DB::table('photos')->get();
+      $photos = Photo::select('name', 'title')->get();
       return response()->json(
         [
           'status'=>'success',
@@ -22,13 +19,20 @@ class ProductController extends Controller
         200
       );
     }
+
     public function simpan(Request $request){
-      $inserted = DB::table('photos')->insert([
-        'name' => $request->input('name'),
-        'title' => $request->input('title')
-      ]);
-      if($inserted){
-        $message = 'insert success';
+
+
+      //Eloquent
+      $photo = new Photo;
+
+      $photo->name = $request->input('name');
+      $photo->title = $request->input('title');
+
+      if($photo->save()){
+        $message = 'insert eloquent success';
+      } else {
+        $message = 'insert eloquent failed';
       }
       return response()->json(
         [
@@ -39,20 +43,31 @@ class ProductController extends Controller
       );
     }
     public function hapus($id){
-      // $produk->delete();
-      DB::table('photos')->where('id', '>', $id)->delete();
+      $photo = Photo::find($id);
+      if($photo->delete()){
+        $message="delete success";
+      } else {
+        $message="delete failed";
+      }
+      return response()->json(
+        [
+          'status'=>'success',
+          'messages'=> $message
+        ],
+        200
+      );
     }
     public function update(Request $request, $id){
-      $affected = DB::table('photos')
-        ->where('id', $id)
-        ->update(
-          [
-            'name' => $request->input('name'),
-            'title' => $request->input('title')
-          ]
-        );
-      if($affected){
+      //Eloquent
+      $photo = Photo::find($id);
+
+      $photo->name = $request->input('name');
+      $photo->title = $request->input('title');
+
+      if($photo->save()){
         $message="update success";
+      } else {
+        $message="update failed";
       }
       return response()->json(
         [

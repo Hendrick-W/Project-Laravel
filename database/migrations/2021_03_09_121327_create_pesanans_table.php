@@ -15,12 +15,11 @@ class CreatePesanansTable extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->integer('nomor_order');
+            $table->string('nomor_order');
             $table->integer('qty');
             $table->integer('id_produk');
-            $table->integer('stock');
-            $table->double('total_tagihan', 10, 2);
-            $table->double('diskon', 10,2);
+            $table->double('total_harga', 10, 2);
+            $table->string('promo_diskon');
             $table->double('ongkir', 10,2);
             $table->timestamps();
         });

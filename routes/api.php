@@ -22,3 +22,9 @@ Route::get('/produk', 'ProductController@index');
 Route::post('/produk', 'ProductController@simpan');
 Route::put('/produk/{id}', 'ProductController@update');
 Route::delete('/produk/{id}', 'ProductController@hapus');
+
+//Router Pesanan
+Route::get('/pesanan', 'PesananController@index');
+Route::post('/pesanan', 'PesananController@simpan');
+Route::put('/pesanan/{id}', 'PesanantController@update');
+Route::delete('/pesanan/{id}', 'PesananController@hapus');

@@ -48,7 +48,7 @@ class PesananController extends Controller
     );
   }
   public function hapus($id){
-    $pesanan = Pesanna::find($id);
+    $pesanan = Pesanan::find($id);
     if($pesanan->delete()){
       $message="delete success";
     } else {

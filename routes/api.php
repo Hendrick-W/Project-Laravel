@@ -28,3 +28,9 @@ Route::get('/pesanan', 'PesananController@index');
 Route::post('/pesanan', 'PesananController@simpan');
 Route::put('/pesanan/{id}', 'PesanantController@update');
 Route::delete('/pesanan/{id}', 'PesananController@hapus');
+
+//Router Quiz
+Route::get('/quiz', 'QuizController@index');
+Route::post('/quiz', 'QuizController@simpan');
+Route::put('/quiz/{id}', 'QuizController@update');
+Route::delete('/quiz/{id}', 'QuizController@hapus');

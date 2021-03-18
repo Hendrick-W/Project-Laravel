@@ -11,7 +11,9 @@ class ProductController extends Controller
 {
     //
     public function index(Request $request){
-      $products = Product::select('id', 'name', 'stock', 'kategori', 'photo', 'description', 'kondisi_produk', 'harga')->get();
+      // $products = Product::select('id', 'name', 'stock', 'kategori', 'photo', 'description', 'kondisi_produk', 'harga')->get();
+      $products = Product::find(1)->order;
+
       return response()->json(
         [
           'status'=>'success',

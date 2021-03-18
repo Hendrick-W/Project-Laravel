@@ -19,7 +19,7 @@ class PesananController extends Controller
     return response()->json(
       [
         'status'=>'success',
-        'data'=> $product,
+        'data'=> $pesanan,
 				'nama_produk'=>$product->name
       ],
       200

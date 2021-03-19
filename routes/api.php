@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 //Router Produk
-Route::get('/produk', 'ProductController@index');
-Route::post('/produk', 'ProductController@simpan');
-Route::put('/produk/{id}', 'ProductController@update');
-Route::delete('/produk/{id}', 'ProductController@hapus');
+Route::get('/produk', 'ProdukController@index');
+Route::post('/produk', 'ProdukController@simpan');
+Route::put('/produk/{id}', 'ProdukController@update');
+Route::delete('/produk/{id}', 'ProdukController@hapus');
 
 //Router Pesanan
 Route::get('/pesanan', 'PesananController@index');

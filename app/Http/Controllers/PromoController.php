@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
 
-class ProductController extends Controller
+class PromoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +13,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // COntent description
-        $content="Product";
-
-        //Data fetch
-        $products = Product::select('id', 'name', 'stock', 'kategori', 'photo', 'description', 'kondisi_produk', 'harga')->get();
+        //
         $data = [
             'content'=>$content,
-            'data'=>$products
+            'data'=>''
         ];
         return view ('app', $data);
-
     }
 
     /**

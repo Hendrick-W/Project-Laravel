@@ -13,11 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcomer');
-    return 'Hendrick';
-});
-Route::get('/test', 'TestController@index');
+// Route::get('/', function () {
+//     return view('app');
+// })->name('home');
+//App Router
+
+//Home
+Route::get('/', 'ProductController@index')->name('home');
+
+//Product
+Route::get('/product', 'ProductController@index')->name('product');
+
+//Promo
+Route::get('/promo', 'PromoController@index')->name('promo');
+
+//Contact
+Route::get('/contact', 'ContactController@index')->name('contact');
 // Route::get('/testaja', 'TestController@testAja');
 
 //Router User

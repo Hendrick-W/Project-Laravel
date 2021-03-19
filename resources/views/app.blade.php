@@ -4,20 +4,13 @@
   </head>
   <body>
     <div>
-      @yield('testview', View::make('component.header')->with('comment', $nama))
+      @yield('header', View::make('component.header'))
     </div>
     <div>
-      @yield('testview', View::make('component.content')->with('comment', $nama))
+      @yield('content', View::make('component.content', ['content'=>$content,'data'=>$data]))
     </div>
     <div>
-      @yield('testview', View::make('component.footer')->with('comment', $nama))
+      @yield('footer', View::make('component.footer'))
     </div>
-    @section('sidebar')
-      This is a master sidebar {{$nama}}
-    @show
-    <div class="container">
-      @yield('content')
-    </div>
-    
   </body>
 </html>

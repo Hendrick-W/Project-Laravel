@@ -14,9 +14,10 @@ class HomeController extends Controller
     public function index()
     {
         //
+        $content = "Home";
         $data = [
             'content'=>$content,
-            'data'=>''
+            'data'=>[]
         ];
         return view ('app', $data);
     }

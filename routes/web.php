@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //App Router
 
 //Home
-Route::get('/', 'ProductController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 //Product
 Route::get('/product', 'ProductController@index')->name('product');

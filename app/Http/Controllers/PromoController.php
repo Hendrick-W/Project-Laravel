@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class PromoController extends Controller
 {
@@ -14,9 +15,11 @@ class PromoController extends Controller
     public function index()
     {
         //
+        $content = "Promo";
+        $products = Product::select('id', 'name', 'stock', 'kategori', 'photo', 'description', 'kondisi_produk', 'harga')->where('promo', 1)->get();
         $data = [
             'content'=>$content,
-            'data'=>''
+            'data'=>$products
         ];
         return view ('app', $data);
     }

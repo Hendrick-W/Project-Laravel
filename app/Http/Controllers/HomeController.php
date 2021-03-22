@@ -17,7 +17,7 @@ class HomeController extends Controller
         $content = "Home";
         $data = [
             'content'=>$content,
-            'data'=>[]
+            'data'=>'This is home'
         ];
         return view ('app', $data);
     }

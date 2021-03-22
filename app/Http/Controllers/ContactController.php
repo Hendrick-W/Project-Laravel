@@ -14,11 +14,12 @@ class ContactController extends Controller
     public function index()
     {
         //
+        $content = "Contact";
         $data = [
             'content'=>$content,
-            'data'=>''
+            'data'=>'This is Contact'
         ];
-        return view ('app');
+        return view ('app', $data);
     }
 
     /**

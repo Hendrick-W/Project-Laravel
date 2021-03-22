@@ -1,6 +1,8 @@
 <div style="text-align:center;height:500px">
   <p>Content is {{$content}}</p>
   <hr style="width:200px"/>
+  <div id="example"></div>
+  {{-- @if($content == 'Product')
   {!! Form::open(array('route'=>array('product.add'), 'method'=>'post')) !!}
     <div class="form-group">
        {!! Form::label('name', 'Name:',['class'=>'control-label']) !!}
@@ -14,6 +16,7 @@
     </div>
     <button type="submit" class="btn btn-block btn-success">Save</button>
 {!! Form::close() !!}
+@endif
   @if ($data && (gettype($data) == 'array' || gettype($data) == 'object'))
     @foreach ($data as $dat)
       <p>Name : {{ $dat->name }}</p>
@@ -23,5 +26,6 @@
     @endforeach
   @else
     <p>{{$data}}</p>
-  @endif
+  @endif --}}
   </div>
+  <script src="{{asset('./js/app.js')}}"></script>
